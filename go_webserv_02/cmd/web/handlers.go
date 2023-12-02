@@ -26,7 +26,7 @@ func home(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "err parsing template files", http.StatusInternalServerError)
 		return
 	}
-	// file name (base) without the .tmpl extension
+	// NOT file name (base) , but this: {{define "base"}}
 	err = ts.ExecuteTemplate(w, "base", nil)
 	if err != nil {
 		log.Print(err.Error())
